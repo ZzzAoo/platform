@@ -1,0 +1,254 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta http-equiv="x-ua-compatible" content="IE=edge" />
+	<link rel="stylesheet" href="http://cdn.bootcss.com/meyer-reset/2.0/reset.css"/>
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="resource/view.js"></script>
+	<style>
+		@-ms-viewport { width:device-width; }
+		@media only screen and (min-device-width:800px) { html { overflow:hidden; } }
+		html { height:100%; }
+		body { height:100%; overflow:hidden; margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:16px; background-color:#000000; }
+		.mesg{
+			width: 6.3rem;height: auto;
+			padding:0px .2rem;
+			background: rgba(0,0,0,.5);
+			z-index: 999999;
+			position: absolute;
+			left:50%;
+			margin-left: -3.35rem;
+			bottom: 1rem;
+			/*display: table;*/
+		}
+		.mesg .icon{
+			/*display: table-row;*/
+			background: orange;
+			 height: .4rem;
+		}
+		.mesg .text{
+			/*display: table-row;*/
+			 
+			background: bisque;height: 1rem;
+		}
+		.mesg .text textarea{
+			/*display: table-row;*/
+			width: 100%;
+			  height: 100%;
+			  overflow: auto;
+			  border: 0;color: #000000;
+			  padding: 0;margin: 0;
+    		  word-break: break-all;  
+		}
+		.mesg .button{
+			/*display: table-row;*/
+			 background: silver;
+			 height: .4rem;
+		}
+		.modal{
+			/*position: fixed;*/
+			/*top: 0;
+			left: 0;*/
+			bottom: 0px;
+			/*right: 0;*/
+		}
+	</style>
+</head>
+<body>
+
+<script src="/pano/tour.js"></script>
+<script src="zepto.js"></script>
+<div id="pano" style="width:100%;height:100%;">
+	<noscript><table style="width:100%;height:100%;"><tr style="vertical-align:middle;"><td><div style="text-align:center;">ERROR:<br/><br/>Javascript not activated<br/><br/></div></td></tr></table></noscript>
+	<script>
+		function getParam(e,t){  //获取url参数
+	        var n=arguments[1]||window.location.search,
+	        r=new RegExp("(^|&)"+e+"=([^&]*)(&|$)","i"),
+	        i=n.substr(n.indexOf("?")+1).match(r);
+	        return i!=null?i[2]:"";
+    	}
+		var estate=getParam('estate');
+		var type=getParam('type');
+		var eastateArr=['ckzx','hl','qhkj','xsyd','hjbs','zsd'];
+		function getUrl(estate){
+			for (var i = 0; i < eastateArr.length; i++) {
+				if(estate==eastateArr[i]){
+					return estate;
+				}
+			}
+		}
+//		var _url=getUrl(estate)+'/'+type+'.xml';
+		var _url='/pano/1';
+		console.info(_url);
+		embedpano({swf:"../tour.swf", xml:""+_url+"", target:"pano", html5:"prefer", mobilescale:1.0, passQueryParameters:true});
+		var krpano = document.getElementById("krpanoSWFObject");
+		$(function(){
+//			 _krpano = new krpanoplugin(document.getElementById("krpanoSWFObject"));
+			$.get('title.json',function(t){
+				var _data=t.data;
+				$.each(_data,function(i,item){
+					if(item.estate==estate&&item.type==type){
+						document.title=item.title
+					}
+				});
+			},'json');
+		});
+		function haha(){
+			history.go(-1);
+		}
+		function phone(){
+			window.location.href = 'tel://400-116-6616' ;
+		}
+	</script>
+</div>
+	<!--<div class="icon">说一说</div>
+	<div class="text">
+		<textarea></textarea>
+	</div>
+	<div class="button">提交 取消</div>-->
+	<!-- 按钮触发模态框 -->
+<!--<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" >-->
+	<!--<button class="btn btn-primary btn-lg" id="show" >-->
+	<!--开始演示模态框
+</button>-->
+<!-- 模态框（Modal） -->
+<!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" 
+						aria-hidden="true">×
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					 说一说
+				</h4>
+			</div>
+			<form role="form">
+  				<div class="form-group col-xs-12">
+   				 	<input type="text" class="form-control" id="saytext" placeholder="说一说">
+  				</div>
+  			</form>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" 
+						data-dismiss="modal">提交
+				</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">
+					取消
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--<script type="text/javascript" src="http://txcloud.say.ecpano.com/say/jquery-3.1.0.min.js"></script>-->
+ <script>
+    
+// 	function showmodel(){
+// 		$('#myModal').css('display','block');
+// 	}
+function showmodel(){
+	 $("#myModal").modal().css({
+   		 	"display": function () {
+                    return "block"
+                 }
+   		 });
+   	$('.modal-footer').css('border','none');
+   	$('.modal-header').css('border','none');	
+   	var a =$('.modal-dialog').height()/2;
+//	$('.modal').css('margin-top','-'+a+'px');
+	$('.modal').css('position','fixed').css('bottom','0');
+}
+$('#myModal').on('hide.bs.modal',
+    function() {
+         krpano.call("set(layer[skin_layer].visible,true)"); 
+    })
+var $inputs = $("#saytext");
+var Intext="";
+$inputs.keyup(function() {
+	Intext=$(this).val();
+	krpano.call("set(plugin[commname_txt].html,"+Intext+")"); 
+// $inputs.val($(this).val());
+});
+
+function print(a,b){
+		alert(a,b)
+	}
+	//更新sname,ath,atv
+function update_comm_ele(s,ah,av){
+	console.log(s);
+    sname = s;
+	ath = ah;
+	atv = av;
+	console.log('头像位置：'+s+':'+ah+','+av);
+}
+	function show_comment(){
+	//ajax判断用户是否微信授权
+//	$.post("/wechat/wechat_user.php",{"state":'validate_auth'},function(result){
+//		var data = eval('('+result+')');
+		var textfield='<input type="text" class="" style="border:0;" id="name" placeholder="说一说"/>'
+  				
+		krpano.call("js(update_comm_ele(get(scene[get(xml.scene)].name),get(view.hlookat),get(view.vlookat)))");
+//		if (data.ret==0) {
+//			$("#usercomm").attr('placeholder','请点击此处使用微信登录后评论！').bind("click",function(){
+//				window.location.href="/wechat/wechat_user.php?state=load&project="+pid+"&scene="+sname;
+//			});
+//		}else{
+//		   console.log(data.img);
+//		   $("#usercomm").attr('placeholder','拖动头像就可以发表说一说到指定位置哦！').unbind("click");
+		   krpano.call(
+                "addhotspot(commname);"+
+				"set(hotspot[commname].url,/images/comm-hide-icon.png);"+
+				"set(hotspot[commname].ath,get(view.hlookat));"+
+				"set(hotspot[commname].atv,get(view.vlookat));"+
+				"set(hotspot[commname].edge,bottom);"+
+				"set(hotspot[commname].zoom,false);"+	
+				"set(hotspot[commname].ondown,draghotspot());"+
+			    "set(hotspot[commname].onup,js(update_comm_ele(get(scene[get(xml.scene)].name),get(ath),get(atv))));"+
+				"addplugin(commname_txt);"+
+				"set(plugin[commname_txt].parent, 'hotspot[commname]');"+
+				"set(plugin[commname_txt].url,'%SWFPATH%/plugins/textfield.swf');"+
+				"set(plugin[commname_txt].align,righttop);"+
+				"set(plugin[commname_txt].edge,lefttop);"+
+				"set(plugin[commname_txt].x,-5);"+
+				"set(plugin[commname_txt].onclick,js(showmodel()));"+
+				"set(plugin[commname_txt].autowidth,true);"+
+				"set(plugin[commname_txt].height,30);"+
+				"set(plugin[commname_txt].background,true);"+
+				"set(plugin[commname_txt].backgroundcolor,0x000000);"+
+				"set(plugin[commname_txt].roundedge,5);"+
+				"set(plugin[commname_txt].backgroundalpha,0.8);"+
+				"set(plugin[commname_txt].css,'text-align:center;color:#FFFFFF;font-size:14px;line-height:25px;padding:0 5px;font-family:microsoft yahei;');"+
+				"set(plugin[commname_txt].html,点我说一说！);"+
+				"set(plugin[commname_txt].enabled,true);"+
+				"addplugin(commname_avatar);"+
+				"set(plugin[commname_avatar].url,%SWFPATH%/plugins/textfield.swf);"+
+				"set(plugin[commname_avatar].parent,'hotspot[commname]');"+
+				"set(plugin[commname_avatar].width,30);"+
+				"set(plugin[commname_avatar].height,30);"+
+				"set(plugin[commname_avatar].align,lefttop);"+
+				"set(plugin[commname_avatar].edge,lefttop);"+
+				"set(plugin[commname_avatar].roundedge,3);"+
+				"set(plugin[commname_avatar].enabled,true);"+
+				"set(plugin[commname_avatar].css,'margin:0;width:30px;height:30px;background:url('http://www.meifang360.com/Mpano/skin/man.png');"+
+				"switch_xuanzhuan();"
+		);
+//		}
+//	});
+//"if(autorotate.enabled==true,switch_xuanzhuan(););"
+// switch_show_comment(true);
+// $(".commentBox").css(css);
+   krpano.call("set(layer[skin_layer].visible,false)"); 
+   showmodel();
+}
+
+ </script>
+</body>
+</html>

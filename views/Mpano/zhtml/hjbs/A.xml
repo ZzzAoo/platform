@@ -1,0 +1,268 @@
+<krpano version="1.19" title="Virtual Tour">
+<include url="%SWFPATH%/skin/vtourskin.xml" />
+    <action name="startup" autorun="onstart">
+		if(startscene === null OR !scene[get(startscene)], 
+		copy(startscene,scene[0].name); );
+		loadscene(get(startscene), null, MERGE);
+		if(startactions !== null, startactions());
+		playsound(bgsnd, 'http://www.meifang360.com/pano/vtour-B/m2.mp3', 0);
+	</action>
+		
+    <!--声音播放-->
+	<plugin name="soundinterface"
+	        url.flash="%SWFPATH%/plugins/soundinterface.swf"
+	        url.html5="%SWFPATH%/plugins/soundinterface.js"
+	        rootpath=""
+	        preload="true"
+	        keep="true"
+		/>
+	
+	<!--热点样式-->
+	<scene name="scene_hw_kt" title="客厅" onstart="" thumburl="%SWFPATH%/panos/hjbs/hw_kt/thumb.jpg" lat="" lng="" heading="">
+		<view hlookat="-178.792" vlookat="5.750" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<preview url="%SWFPATH%/panos/hjbs/hw_kt/preview.jpg" />
+		<image>
+			<cube url="%SWFPATH%/panos/hjbs/hw_kt/pano_%s.jpg?nocache=%$random%" />
+			<cube url="%SWFPATH%/panos/hjbs/hw_kt/mobile/pano_%s.jpg?nocache=%$random%" devices="mobile" />
+		</image>
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="hotzw" ath="-78.721" atv="11.290" linkedscene="scene_hw_zw" ondown="draghotspot();"/>
+		<hotspot name="spot2" style="hotcw" ath="-151.847" atv="-0.141" linkedscene="scene_hw_cw" />
+		<hotspot name="spot3" style="hotct" ath="155.885" atv="1.479" linkedscene="scene_hw_ct" />
+		<hotspot name="spot5" style="hotyc" ath="-115.768" atv="-2.201" linkedscene="scene_hw_yc" />
+	</scene>
+
+	<scene name="scene_hw_cf" title="厨房" onstart="" thumburl="%SWFPATH%/panos/hjbs/hw_cf/thumb.jpg" lat="" lng="" heading="">
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<preview url="%SWFPATH%/panos/hjbs/hw_cf/preview.jpg" />
+		<image>
+			<cube url="%SWFPATH%/panos/hjbs/hw_cf/pano_%s.jpg?nocache=%$random%" />
+			<cube url="%SWFPATH%/panos/hjbs/hw_cf/mobile/pano_%s.jpg?nocache=%$random%" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="hotct" ath="-92.175" atv="24.753" linkedscene="scene_hw_ct" />
+		<hotspot name="spot2" style="hostkt" ath="-67.261" atv="12.087" linkedscene="scene_hw_kt" />
+
+	</scene>
+
+	<scene name="scene_hw_ct" title="餐厅" onstart="" thumburl="%SWFPATH%/panos/hjbs/hw_ct/thumb.jpg" lat="" lng="" heading="">
+		<view hlookat="188.714" vlookat="19.911" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<preview url="%SWFPATH%/panos/hjbs/hw_ct/preview.jpg" />
+		<image>
+			<cube url="%SWFPATH%/panos/hjbs/hw_ct/pano_%s.jpg?nocache=%$random%" />
+			<cube url="%SWFPATH%/panos/hjbs/hw_ct/mobile/pano_%s.jpg?nocache=%$random%" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="hotkwsj" ath="-87.045" atv="15.757" linkedscene="scene_hw_ctwsj" />
+		<hotspot name="spot2" style="hotkt" ath="-31.859" atv="14.420" linkedscene="scene_hw_kt" />
+		<hotspot name="spot3" style="hotcf" ath="116.030" atv="10.120" linkedscene="scene_hw_cf" />
+		
+
+	</scene>
+	
+	<scene name="scene_hw_ctwsj" title="餐厅卫生间" onstart="" thumburl="%SWFPATH%/panos/hjbs/hw_ctwsj/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="%SWFPATH%/panos/hjbs/hw_ctwsj/preview.jpg" />
+
+		<image>
+			<cube url="%SWFPATH%/panos/hjbs/hw_ctwsj/pano_%s.jpg?nocache=%$random%" />
+
+			<cube url="%SWFPATH%/panos/hjbs/hw_ctwsj/mobile/pano_%s.jpg?nocache=%$random%" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot2" style="hotct" ath="20.140" atv="8.744" linkedscene="scene_hw_ct" />
+
+	</scene>
+
+	<scene name="scene_hw_cw" title="次卧" onstart="" thumburl="%SWFPATH%/panos/hjbs/hw_cw/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="-96.818" vlookat="26.973" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="%SWFPATH%/panos/hjbs/hw_cw/preview.jpg" />
+
+		<image>
+			<cube url="%SWFPATH%/panos/hjbs/hw_cw/pano_%s.jpg?nocache=%$random%" />
+
+			<cube url="%SWFPATH%/panos/hjbs/hw_cw/mobile/pano_%s.jpg?nocache=%$random%" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="hotkt" ath="35.234" atv="3.622" linkedscene="scene_hw_kt" />
+		<hotspot name="spot2" style="hotyc" ath="-82.317" atv="3.362" linkedscene="scene_hw_yc" />
+		
+
+	</scene>
+
+	<scene name="scene_hw_cwwsj" title="次卧卫生间" onstart="" thumburl="%SWFPATH%/panos/hjbs/hw_cwwsj/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="%SWFPATH%/panos/hjbs/hw_cwwsj/preview.jpg" />
+
+		<image>
+			<cube url="%SWFPATH%/panos/hjbs/hw_cwwsj/pano_%s.jpg?nocache=%$random%" />
+
+			<cube url="%SWFPATH%/panos/hjbs/hw_cwwsj/mobile/pano_%s.jpg?nocache=%$random%" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+	<scene name="scene_hw_hy" title="户外" onstart="" thumburl="%SWFPATH%/panos/hjbs/hw_hy/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="149.782" vlookat="16.450" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="%SWFPATH%/panos/hjbs/hw_hy/preview.jpg" />
+
+		<image>
+			<cube url="%SWFPATH%/panos/hjbs/hw_hy/pano_%s.jpg?nocache=%$random%" />
+
+			<cube url="%SWFPATH%/panos/hjbs/hw_hy/mobile/pano_%s.jpg?nocache=%$random%" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot2" style="hotyc" ath="124.878" atv="4.972" linkedscene="scene_hw_yc" />
+		<hotspot name="spot3" style="hotzw" ath="84.012" atv="-0.852" linkedscene="scene_hw_zw" />
+		<hotspot name="spot4" style="hotkt" ath="108.498" atv="-2.246" linkedscene="scene_hw_kt" />
+		<hotspot name="spot5" style="hotqt" ath="-51.645" atv="2.274" linkedscene="scene_hw_mt" />
+
+	</scene>
+
+	<scene name="scene_hw_mt" title="码头" onstart="" thumburl="%SWFPATH%/panos/hjbs/hw_mt/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="251.469" vlookat="6.058" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="%SWFPATH%/panos/hjbs/hw_mt/preview.jpg" />
+
+		<image>
+			<cube url="%SWFPATH%/panos/hjbs/hw_mt/pano_%s.jpg?nocache=%$random%" />
+
+			<cube url="%SWFPATH%/panos/hjbs/hw_mt/mobile/pano_%s.jpg?nocache=%$random%" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot2" style="hothy" ath="53.339" atv="-4.128" linkedscene="scene_hw_hy" />
+
+	</scene>
+
+	<scene name="scene_hw_sf" title="书房" onstart="" thumburl="%SWFPATH%/panos/hjbs/hw_sf/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="%SWFPATH%/panos/hjbs/hw_sf/preview.jpg" />
+
+		<image>
+			<cube url="%SWFPATH%/panos/hjbs/hw_sf/pano_%s.jpg?nocache=%$random%" />
+
+			<cube url="%SWFPATH%/panos/hjbs/hw_sf/mobile/pano_%s.jpg?nocache=%$random%" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+
+	</scene>
+
+	<scene name="scene_hw_yc" title="户外泳池" onstart="" thumburl="%SWFPATH%/panos/hjbs/hw_yc/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="-89.311" vlookat="-2.568" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="%SWFPATH%/panos/hjbs/hw_yc/preview.jpg" />
+
+		<image>
+			<cube url="%SWFPATH%/panos/hjbs/hw_yc/pano_%s.jpg?nocache=%$random%" />
+
+			<cube url="%SWFPATH%/panos/hjbs/hw_yc/mobile/pano_%s.jpg?nocache=%$random%" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot2" style="hotkt" ath="79.807" atv="3.156" linkedscene="scene_hw_kt" />
+		<hotspot name="spot3" style="hothw" ath="-33.322" atv="10.239" linkedscene="scene_hw_hy" />
+		<hotspot name="spot4" style="hotcw" ath="126.008" atv="1.560" linkedscene="scene_hw_cw" />
+		
+
+	</scene>
+
+	<scene name="scene_hw_zw" title="主卧" onstart="" thumburl="%SWFPATH%/panos/hjbs/hw_zw/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="96.290" vlookat="26.467" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="%SWFPATH%/panos/hjbs/hw_zw/preview.jpg" />
+
+		<image>
+			<cube url="%SWFPATH%/panos/hjbs/hw_zw/pano_%s.jpg?nocache=%$random%" />
+
+			<cube url="%SWFPATH%/panos/hjbs/hw_zw/mobile/pano_%s.jpg?nocache=%$random%" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="hotzwsj" ath="93.189" atv="11.311" linkedscene="scene_hw_zwwsj" />
+		<hotspot name="spot2" style="hotkt" ath="116.901" atv="10.832" linkedscene="scene_hw_kt" />
+		<hotspot name="spot3" style="hothw" ath="-86.755" atv="14.634" linkedscene="scene_hw_hy" />
+
+	</scene>
+
+	<scene name="scene_hw_zwwsj" title="主卧卫生间" onstart="" thumburl="%SWFPATH%/panos/hjbs/hw_zwwsj/thumb.jpg" lat="" lng="" heading="">
+
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="%SWFPATH%/panos/hjbs/hw_zwwsj/preview.jpg" />
+
+		<image>
+			<cube url="%SWFPATH%/panos/hjbs/hw_zwwsj/pano_%s.jpg?nocache=%$random%" />
+
+			<cube url="%SWFPATH%/panos/hjbs/hw_zwwsj/mobile/pano_%s.jpg?nocache=%$random%" devices="mobile" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="hotzw" ath="-101.793" atv="21.494" linkedscene="scene_hw_zw" />
+
+	</scene>
+	<layer name="hotspot_pos_info"
+	        url="%SWFPATH%/plugins/textfield.swf"
+	        html="drag the hotspots..."
+	        css="font-family:Courier;z-index:999999;"
+	        padding="8" keep="true"
+	        align="lefttop" x="10" y="10"
+	        width="200"
+	        visible="false"
+	        enabled="true"
+	        />
+
+
+	<!-- the action for dragging the hotspot - call it once in the ondown event -->
+	<action name="draghotspot">
+		spheretoscreen(ath, atv, hotspotcenterx, hotspotcentery, 'l');
+		sub(drag_adjustx, mouse.stagex, hotspotcenterx);
+		sub(drag_adjusty, mouse.stagey, hotspotcentery);
+		asyncloop(pressed,
+			sub(dx, mouse.stagex, drag_adjustx);
+			sub(dy, mouse.stagey, drag_adjusty);
+			screentosphere(dx, dy, ath, atv);
+			copy(hlookat,ath);
+			copy(vlookat,atv);
+			copy(name,name);
+			copy(scene1,scene[get(xml.scene)].name);
+			jscall(calc('console.log("当前视角：场景:' +scene1 + ',name:' + name + ',hlookat:'+hlookat+',vlookat:'+vlookat+'")'));
+			print_hotspot_pos();
+		  );
+	</action>
+	
+	<!-- show the xml code of the hotspot position -->
+	<action name="print_hotspot_pos"><![CDATA[
+		copy(print_ath, ath);
+		copy(print_atv, atv);
+		copy(name,name);
+		roundval(print_ath, 3);
+		roundval(print_atv, 3);
+		calc('console.log("拖拽热点数据：场景:' +scene + ',热点名称"' + name + ',hlookat:'+ath+',vlookat:'+atv+'")');
+		copy(scene1,scene[get(xml.scene)].name);
+		calc('console.log("拖拽热点数据：场景:' +scene + ',热点名称"' + name + ',hlookat:'+ath+',vlookat:'+atv+'")');
+		calc(plugin[hotspot_pos_info].html, '&lt;hot="' +scene1 + '" &nbsp;&nbsp;name="' + name + '" &nbsp;&nbsp;&nbsp;hlookat="'+print_ath+'" &nbsp;&nbsp;&nbsp;vlookat="'+print_atv+'"/&gt;');
+	]]></action>
+
+</krpano>

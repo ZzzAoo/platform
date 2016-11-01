@@ -1,0 +1,13 @@
+<krpano  debugmode="true"  logkey="true">
+
+	<!--技术交流群551278936-->
+	 
+	<!--<layer name="navigation" keep="true"  
+			align="lefttop" x="100" 
+			onclick="naviToMap();" 
+			url="navigation.png" 
+			scale="0.7"/>-->
+	
+	
+
+</krpano>

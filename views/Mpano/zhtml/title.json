@@ -1,0 +1,36 @@
+{
+	"jtitle":"title",
+	"data":[{
+		"estate":"ckzx",
+		"type":"a",
+		"title":"创客中心A户型"
+	},{
+		"estate":"ckzx",
+		"type":"b",
+		"title":"创客中心B户型"
+	},{
+		"estate":"hl",
+		"type":"a60",
+		"title":"汇隆中心A户型"
+	},{
+		"estate":"hl",
+		"type":"b",
+		"title":"汇隆中心B户型"
+	},{
+		"estate":"qhkj",
+		"type":"A",
+		"title":"清华科技城A户型"
+	},{
+		"estate":"zsd",
+		"type":"A",
+		"title":"瑧山道A户型"
+	},{
+		"estate":"xsyd",
+		"type":"A",
+		"title":"香山云顶别墅户型"
+	},{
+		"estate":"hjbs",
+		"type":"A",
+		"title":"海景别墅户型"
+	}]
+}

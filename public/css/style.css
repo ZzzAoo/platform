@@ -1,0 +1,25 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+.box1, .box2, .box3 {
+    min-height: 30px;
+}
+.box1 {
+    background: #50A6D7;
+}
+.box2 {
+    background: #34B72E;
+}
+.box3 {
+    background: #7948BF;
+}
+.footer {
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    margin-top: 100px;
+}

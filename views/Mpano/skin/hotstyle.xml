@@ -1,0 +1,106 @@
+<krpano>
+	<!--动态图事件-->
+ 
+ 
+<action name="add_all_the_time_tooltip">
+    txtadd(tooltipname, 'tooltip_', get(name));
+    addplugin(get(tooltipname));
+    txtadd(plugin[get(tooltipname)].parent, 'hotspot[', get(name), ']');
+    set(plugin[get(tooltipname)].url,'%SWFPATH%/plugins/textfield.swf');
+    set(plugin[get(tooltipname)].align,top);
+    set(plugin[get(tooltipname)].edge,bottom);
+    set(plugin[get(tooltipname)].x,0);
+    set(plugin[get(tooltipname)].y,0);
+    set(plugin[get(tooltipname)].width,100);
+    set(plugin[get(tooltipname)].autoheight,true);
+    set(plugin[get(tooltipname)].background,true);
+    set(plugin[get(tooltipname)].backgroundcolor,0x000000);
+    set(plugin[get(tooltipname)].roundedge,15);
+    set(plugin[get(tooltipname)].backgroundalpha,0.5);
+    set(plugin[get(tooltipname)].border,true);
+    set(plugin[get(tooltipname)].glow,4);
+    set(plugin[get(tooltipname)].glowcolor,0xFFFFFF);
+    set(plugin[get(tooltipname)].css,'text-align:center; color:#FFFFFF; font-family:Arial; font-weight:bold; font-size:16px;');
+    set(plugin[get(tooltipname)].textshadow,1);
+    set(plugin[get(tooltipname)].textshadowrange,6.0);
+    set(plugin[get(tooltipname)].textshadowangle,90);
+    copy(plugin[get(tooltipname)].html,scene[get(linkedscene)].title);
+    set(plugin[get(tooltipname)].enabled,false);        
+</action>
+
+	<!--动态箭头-->
+
+<action name="hotspot_animate">
+		inc(frame,1,get(lastframe),0);
+		mul(ypos,frame,frameheight);
+		txtadd(crop,'0|',get(ypos),'|',get(framewidth),'|',get(frameheight));
+		delayedcall(0.1, if(loaded, hotspot_animate()) );
+	</action>
+	<!-- 皮肤样式-->
+	<style name="skin_hotspotstyle" url="hotrun.png" scale="0.5" edge="top" distorted="true"
+	       tooltip=""  crop="0|0|128|128"
+	       onclick="if(linkedscene, set(enabled,false); skin_hidetooltips(); tween(depth|alpha|oy|rx, 4000|0.0|-50|-60, 0.5, default, loadscene(get(linkedscene),null,get(skin_settings.loadscene_flags),get(skin_settings.loadscene_blend)); skin_updatescroll(); ); );"
+	       onover="tween(scale,0.55);"
+	       onout="tween(scale,0.5);"
+	       onloaded="hotspot_animate();add_all_the_time_tooltip()"
+	       />
+	<style name="base" url="skinhot.png" scale="0.8" edge="top" distorted="true" depth="1000"
+	       tooltip=""
+	       onclick="if(linkedscene, set(enabled,false); skin_hidetooltips(); tween(depth|alpha|oy|rx, 4000|0.0|-50|-60, 0.5, default, loadscene(get(linkedscene),null,get(skin_settings.loadscene_flags),get(skin_settings.loadscene_blend)); skin_updatescroll(); ); );"
+	       onover="tween(scale,0.55);"
+	       onout="tween(scale,0.8);"
+	       onloaded="if(linkedscene AND skin_settings.tooltips_hotspots, copy(tooltip,scene[get(linkedscene)].title); loadstyle(skin_tooltips); );"></style>
+	 
+	<style name="hot_test" url="skin3.png" scale="1" edge="top" distorted="true" 
+	       tooltip=""
+	       onclick="if(linkedscene, set(enabled,false); skin_hidetooltips(); tween(depth|alpha|oy|rx, 4000|0.0|-50|-60, 0.5, default, loadscene(get(linkedscene),null,get(skin_settings.loadscene_flags),get(skin_settings.loadscene_blend)); skin_updatescroll(); ); );"
+	       onover="tween(scale,0.55);"
+	       onout="tween(scale,0.5);"
+	       onloaded="if(linkedscene AND skin_settings.tooltips_hotspots, copy(tooltip,scene[get(linkedscene)].title); loadstyle(skin_tooltips); );"
+	       />
+	<!--<style name="hotrun" url="skin6.png" scale=".7" edge="top" distorted="true"  
+	       tooltip=""	crop="0|0|84|30"
+	       onclick="if(linkedscene, set(enabled,false); skin_hidetooltips(); tween(depth|alpha|oy|rx, 4000|0.0|-50|-60, 0.5, default, loadscene(get(linkedscene),null,get(skin_settings.loadscene_flags),get(skin_settings.loadscene_blend)); skin_updatescroll(); ); );"
+	       onover="tween(scale,0.55);"
+	       onout="tween(scale,0.5);"
+	       onloaded=""
+	       />-->
+	<!--客厅-->
+	<style name="hotkt" style="base"  crop="0|0|84|30"/>
+    <!--厨房-->
+	<style name="hotcf" style="base"  crop="0|30|84|30"/>
+	<!--玄关-->
+	<style name="hotxg" style="base"  crop="0|60|84|30" /> 
+    <!--主卧-->
+	<style name="hotzw" style="base"  crop="0|90|84|30" />
+	 <!--次卧-->
+	<style name="hotcw" style="base"  crop="0|120|84|30" />
+	 <!--儿童房-->
+	<style name="hotetf" style="base"  crop="0|150|84|30" />
+	<!--客卫-->
+	<style name="hotkwsj" style="base"  crop="0|180|84|30" />
+	<!--泳池-->
+	<style name="hotyc" style="base"  crop="84|150|84|30" />
+	<!--电梯-->
+	<style name="hotdt" style="base"  crop="0|240|84|30" />
+	<!--次卫-->
+	<style name="hotcwsj" style="base"  crop="0|270|84|30" />
+	 <!--餐厅-->
+	<style name="hotct" style="base" crop="84|30|84|30"/>
+	<!--阳台-->
+	<style name="hotyt" style="base"  crop="84|0|84|30"/>	
+  	<!--书房-->
+	<style name="hotsf" style="base"  crop="84|60|84|30" />
+	<!--主卫-->
+	<style name="hotzwsj" style="base"  crop="84|90|84|30" />
+	<!--客卧-->
+	<style name="hotkw" style="base"  crop="84|120|84|30" />
+	<!--功能房-->
+	<style name="hotgnf" style="base"  crop="0|210|84|30" />
+	<!--其他-->
+	<style name="hotqt" style="base"  crop="84|180|84|30" />
+	<!--户外-->
+	<style name="hothw" style="base"  crop="84|210|84|30" />
+	<!--走廊-->
+	<style name="hotzl" style="base"  crop="84|240|84|30" />
+</krpano>
