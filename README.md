@@ -1,2 +1,2 @@
 # platform
-house   asdasd
+house   asdasd asdasd asdsad a
