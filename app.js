@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var ejs = require('ejs');
 
-//指定应用路径测试
+//指定应用路径测试-----
 var routes = require('./routes/index');
 var users = require('./routes/users');
 //项目管理
