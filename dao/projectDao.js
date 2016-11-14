@@ -31,7 +31,7 @@ var panoVarible={
     _arr:function(imgPath,runCount){
         return '';
     }
-}
+};
 var arr="";
 var sum=0;
 var count=0;
@@ -66,10 +66,10 @@ var execfile2=function(path,res){
         panoVarible.count=0;
         panoVarible.sum=0;
         console.log('切图程序执行完毕,关闭子进程，代码：' + code);
-        res.redirect('/pano');
+        // res.redirect('/pano');
     });
     // console.info(process.pid+"---"+process.title+"--"+path);
-}
+};
 
 // 文件解析与保存
 // function _fileParse1() {
@@ -317,7 +317,8 @@ module.exports = {
                     throw err;
                 //res.send('The solution is: ', rows[0]);
                 //res.send('user id is:'+req.params.id);
-                res.render('projectAdd', {
+                res.render('testAdd', {
+                // res.render('projectAdd', {
                     rr : '新增项目',
                     project : rows
                 });

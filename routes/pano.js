@@ -42,8 +42,43 @@ module.exports=function(route){
         // console.info();
         // res.end(writeXml());
     });
-    route.get("/pano",function(req,res,err) {
+    // route.all('*',function (req, res, next) {
+    //     console.info("jinlai 0 ");
+    //     res.header('Access-Control-Allow-Origin', '*');
+    //     res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
+    //     res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+    //     if (req.method == 'OPTIONS') {
+    //         res.send(200,{mesg:'hahah'}); //让options请求快速返回/
+    //     }
+    //     next();
+    // });
+    route.get("/scene",function(req,res,err) {
+        res.header('Access-Control-Allow-Origin', '*');
+        res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
+        res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
         //返回view目录pano.html.
         dao.parsexml(req,res);
     });
+    route.get('/foruser',function (req,res) {
+        res.header('Access-Control-Allow-Origin', 'http://localhost:63342');
+        // res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
+        // res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+        var list={
+            title:'ZzzAoo',
+            name:'HaoLi',
+            arr:[{
+               name:'one',mark:90
+            },{
+                name:'two',mark:20
+            },{
+                name:'three',mark:140
+            },{
+                name:'four',mark:76
+            }],
+            time:new Date().getTime()
+        };
+        console.info(list.time);
+        console.info(new Date(list.time));
+        res.send(list);
+    })
 };

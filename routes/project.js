@@ -36,6 +36,9 @@ router.get('/img', function(req, res, next) {
 router.get('/queryAll', function(req, res, next) {
     projectDao.queryAll(req, res, next);
 });
+router.get('/testAdd', function(req, res, next) {
+    projectDao.search(req, res, next);
+});
 //新增项目
 router.get('/add',function(req,res,next){
     projectDao.search(req, res, next);

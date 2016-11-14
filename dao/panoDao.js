@@ -84,18 +84,31 @@ var getutil=require('../util/util'),
         console.info(xml(krpano)+'ssssssssssssssss');
         console.info(appendXml+"lllllllll");
 
-}
+};
 
 module.exports={
     //请求返回全景的xml
     parsexml:function(req,res){
         res.writeHead(200, {'Content-Type': 'application/xml'});
-        var header='<?xml version="1.0" encoding="UTF-8"?><node>1111</node>'
+        //var header='<?xml version="1.0" encoding="UTF-8"?><node>1111</node>'
         // var ww=writexml();
         var ww='<?xml version="1.0" encoding="utf-8"?><node><parent><taco>beef taco<salsa>hot!</salsa></taco><taco mood="sad">'+
             'fish taco<salsa>mild</salsa>hi<salsa type="2">weak</salsa></taco><taco mood="party!"/></parent><parent2><hi>is a nice thing to say</hi>'+
-            '<node>i am another not special child node</node><date>Thu Oct 20 2016 16:34:04 GMT+0800 (中国标准时间)</date></parent2></node>'
-        res.end(xmlWrite());
+            '<node>i am another not special child node</node><date>Thu Oct 20 2016 16:34:04 GMT+0800 (中国标准时间)</date></parent2></node>';
+        var tt='<?xml version="1.0" encoding="utf-8"?><krpano version="1.19" title="Virtual Tour">'+
+            '<include url="%SWFPATH%/skin/vtourskin.xml" />'+
+            '<scene name="scene_zsd170_kt" title="客 厅" onstart="" thumburl="%SWFPATH%/panos/zsd/zsd170_kt.tiles/thumb.jpg" lat="" lng="" heading="">'+
+            '<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />'+
+            '<image>'+
+            '<cube url="%SWFPATH%/panos/zsd/zsd170_kt.tiles/pano_%s.jpg" />'+
+            '<cube url="%SWFPATH%/panos/zsd/zsd170_kt.tiles/mobile/pano_%s.jpg" devices="mobile" />'+
+            '</image>'+
+            '<hotspot name="spot1" style="skin_hotspotstyle" ath="-15.461" atv="-1.368" linkedscene="scene_zsd170_sf" />'+
+            '<hotspot name="spot2" style="skin_hotspotstyle" ath="-25.081" atv="-1.682" linkedscene="scene_zsd170_cw1" />'+
+            '<hotspot name="spot3" style="skin_hotspotstyle" ath="24.060" atv="3.123" linkedscene="scene_zsd170_zw" />'+
+            '<hotspot name="spot4" style="skin_hotspotstyle" ath="11.252" atv="0.151" linkedscene="scene_zsd170_ct" />'+
+            '</scene></krpano>';
+        res.end(tt);
     }
-}
+};
 

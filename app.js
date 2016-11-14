@@ -12,6 +12,7 @@ var users = require('./routes/users');
 //项目管理
 var project = require('./routes/project');
 var pano = require('./routes/pano');
+var angular=require('./routes/angularjs');
 var app = express();
 
 // view engine setup
@@ -46,13 +47,23 @@ app.use('/index', routes);
 app.use('/users', users);
 //绑定project(项目)
 app.use('/project', project);
+app.use('/angular',angular);
 // app.use(express.router(pano));
 pano(app);
 
-app.all('/*',function (req,res) {
+app.all('*',function (req,res,next) {
+    console.info('1111');
+    res.header('Access-Control-Allow-Origin', '*');
     next();
-})
-
+});
+app.get('*',function (req,res,next) {
+    console.info('拦截get');
+    next();
+});
+app.post('*',function (req,res,next) {
+    console.info('post');
+    next();
+});
 // 输出日志到目录
 var fs = require('fs');
 var accessLogStream = fs.createWriteStream(__dirname + '/log/access.log', {flags: 'a',  encoding:'utf8'}); // 记得要先把目录建好，不然会报错
@@ -84,6 +95,7 @@ app.use(function(err, req, res, next) {
     message: err.message,
     error: {}
   });
+
 });
 
 
