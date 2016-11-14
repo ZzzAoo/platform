@@ -1,1 +1,5 @@
-sss..
+sss..::1 - - [14/Nov/2016:07:53:21 +0000] "GET /angular/p HTTP/1.1" 404 466 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+::1 - - [14/Nov/2016:07:56:54 +0000] "GET /angular/p HTTP/1.1" 404 466 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+::ffff:127.0.0.1 - - [14/Nov/2016:09:07:11 +0000] "GET /testImg HTTP/1.1" 404 466 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+::1 - - [14/Nov/2016:09:07:36 +0000] "GET /testImg HTTP/1.1" 404 466 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+::1 - - [14/Nov/2016:09:40:09 +0000] "GET /angular/p HTTP/1.1" 404 466 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
